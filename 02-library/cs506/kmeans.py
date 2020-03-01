@@ -14,7 +14,8 @@ def point_avg(points):
     n = len(points)
     x = sum([p[0] for p in points]) / n
     y = sum([p[1] for p in points]) / n
-    return [x, y]
+    z = sum([p[2] for p in points]) / n
+    return [x, y, z]
 
 
 def update_centers(dataset, assignments):
@@ -71,7 +72,7 @@ def generate_k(dataset, k):
 
 def cost_function(clustering):
     cost = 0
-    for idx in clustering:
+    for idx in range(len(clustering):
         center = point_avg(clustering[idx])
         cost += sum([distance_squared(center, p) for p in clustering[idx]])
 
